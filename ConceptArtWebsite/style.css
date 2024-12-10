@@ -1,0 +1,478 @@
+/* Color Schema */
+/* Default theme */
+:root {
+  --bg-color: #888888;
+  --text-bg-color: #ffffffa1;
+  --text-color: #1a0808;
+  --caption-color: #5a5a5a;
+  --button-bg: #ecb80fb7;
+  --button-hover: #ecb80f;
+  --navbar-bg: #8888887a;
+  --pnd-content: #e2e2e2;
+  --parallax-bg: url("Images/wiibg.jpg");
+
+  /* High-contrast theme */
+  --bg-color-high-contrast: #181818;
+  --text-color-high-contrast: #e5ebc5;
+  --text-bg-color-high-contrast: #3b3631;
+  --caption-color-high-contrast: #94bcc9;
+  --button-bg-high-contrast: #3b3631;
+  --button-hover-high-contrast: #723f2b;
+  --navbar-bg-high-contrast: #2e2826;
+  --pnd-content-high-contrat: #3b3631;
+  --parallax-bg-high-contrast:url("Images/darkwiibg.jpg");
+}
+
+/* High contrast applied to root */
+:root.high-contrast {
+  --bg-color: var(--bg-color-high-contrast);
+  --text-color: var(--text-color-high-contrast);
+  --text-bg-color: var(--text-bg-color-high-contrast);
+  --caption-color: var(--caption-color-high-contrast);
+  --button-bg: var(--button-bg-high-contrast);
+  --button-hover: var(--button-hover-high-contrast);
+  --navbar-bg: var(--navbar-bg-high-contrast);
+  --pnd-content: var(--pnd-content-high-contrat);
+  --parallax-bg: var(--parallax-bg-high-contrast);
+}
+
+body, html {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Update other sections to use variables */
+.caption {
+  color: var(--caption-color);
+}
+
+.CButton {
+  background-color: var(--button-bg);
+}
+
+.CButton:hover {
+  background-color: var(--button-hover);
+}
+
+.parallax {
+  background-image: var(--parallax-bg);
+}
+
+/* General */
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI';
+  color: var(--text-color);
+  letter-spacing: 0.5rem;
+  font-weight: normal;
+  font-size: 2.3rem;
+}
+
+p, ol, ul {
+  font-family: 'Arial';
+  color: var(--text-color);
+  letter-spacing: 0.2rem;
+  font-size: 1rem;
+}
+
+.caption {
+  font-family: 'Arial';
+  color: var(--caption-color);
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem;
+}
+
+/* Typing Animation (Conceptualize) */
+.Conceptualize {
+  font-family: monospace;
+  color: var(--text-color);
+  letter-spacing: 0.5rem;
+  font-size: 2em;
+  width: 20ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.2rem solid;
+  animation: typing 1s steps(18), blink 0.7s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Buttons */
+.CButton {
+  background-color: var(--button-bg);
+  border: none;
+  padding: 0.75rem 1.125rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+}
+
+.CButton:hover {
+  transform: scale(1.05);
+  background-color: var(--button-hover);
+}
+
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dropbtn {
+  background-color: var(--button-bg);
+  font-family: 'Segoe UI';
+  letter-spacing: 0.5rem;
+  color: var(--text-color);
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2rem;
+  position: relative;
+  z-index: 1;
+  margin-left: 10rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropbtn:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.03);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 4rem;
+  left: 10rem;
+  background-color: var(--pnd-content);
+  border-radius: 2rem;
+  min-width: 10rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content a {
+  font-family: 'Arial';
+  letter-spacing: 0.2rem;
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  border-radius: 2rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.10);
+}
+
+.navbar .toggle-contrast-btn {
+  margin-left: auto; /* Push the button to the far-right end of the navbar */
+  margin-right: 10rem;
+  background-color: var(--button-bg);
+  font-family: 'Segoe UI';
+  letter-spacing: 0.5rem;
+  color: var(--text-color);
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar .toggle-contrast-btn:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.03);
+}
+
+/* Sections & Layouts */
+.wrapper {
+  height: 75vh;
+  display: grid;
+  place-items: center;
+}
+
+.break {
+  height: 20vh;
+}
+ 
+.TitleSegment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: var(--text-bg-color);
+  border-radius: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.TitleSegment .Title {
+  font-family: 'Segoe UI';
+  font-size: 3rem;
+  color: var(--text-color);
+  letter-spacing: 0.2rem;
+  margin: 0.5rem 0;
+}
+
+
+.parallax {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1vw;
+  background-image: var(--parallax-bg);
+  min-height: 100vh;
+  border-radius: 2rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ImageFormat, .TextFormat1, .TextFormat2, .video-container {
+  margin: 0 auto;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  border-radius: 2rem;
+  padding: 2rem 5rem;
+  background-color: var(--text-bg-color);
+  backdrop-filter: blur(10px);
+  line-height: 1.6;
+  max-width: 80rem;
+}
+
+.NavigationFormat {
+  font-family: 'Segoe UI';
+  letter-spacing: 0.5rem;
+  color: var(--text-color);
+  margin: 0 auto;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  border-radius: 2rem;
+  padding: 2rem 5rem;
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  line-height: 1.6;
+  max-width: 100rem;
+}
+
+.NavigationFormat a {
+  display: inline-block; 
+  text-decoration: none;
+  color: var(--text-color); 
+  background-color: var(--button-bg);
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  font-family: 'Segoe UI'; 
+  letter-spacing: 0.5rem;
+  font-size: 1rem;
+  text-align: center; 
+  transition: all 0.2s ease-in-out; 
+}
+
+.NavigationFormat a:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05); 
+}
+
+/* Single-column layout */
+.TextFormat1, .ImageBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Two-column layout */
+.TextFormat2, .NavigationFormat {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.ImageFormat img, .TextFormat1 img, .TextFormat2 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  object-fit: cover;
+  grid-row: 3;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.TextFormat2 h1,h2,h3,h4,h5,h6 {
+  grid-row: 1;
+}
+
+.TextFormat2 .caption {
+  grid-row: 4;
+}
+
+/* Previous/Next Buttons */
+.PreviousNext {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100vw;
+  padding: 0 14rem;
+  margin-top: 1rem;
+}
+
+.Previous, .Next {
+  background-color: var(--pnd-content);
+  font-family: 'Segoe UI';
+  letter-spacing: 0.5rem;
+  color: var(--text-color);
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 1.2rem;
+  margin-bottom: 5rem;
+  text-decoration: none;
+}
+
+.Previous:hover, .Next:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.03);
+}
+
+/* Media Queries */
+/* Media Queries */
+@media (max-width: 768px) {
+  .TitleSegment {
+    margin-top: 8rem;
+  }
+
+  /* Text Layout Adjustments */
+  .TextFormat1, .TextFormat2, .ImageFormat, .PreviousNext, .video-container , .video-container iframe  {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Adjust TextFormat2 for Single Column */
+  .TextFormat2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ImageBox img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  /* Adjust Navigation Format */
+  .NavigationFormat {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 1rem; 
+    margin-top: 6rem;
+    width: 100%; 
+    box-sizing: border-box;
+  }
+
+  /* Navigation Links Styling */
+  .NavigationFormat a {
+    width: 100%; 
+    text-align: center; 
+    padding: 1.5rem 0.5rem; 
+    font-size: 1rem; 
+  }
+
+  .parallax {
+    padding: 1rem;
+  }
+
+  .CButton {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* === Navbar Styling for Small Screens === */
+  .navbar {
+    flex-direction: row; /* Align elements in a row */
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: center; /* Align items vertically */
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Drop Button Alignment */
+  .dropbtn {
+    margin: 0;
+    width: 100%; /* Use percentage for responsive sizing */
+    text-align: center;
+    margin-bottom: 0.5rem; /* Adjust spacing */
+  }
+
+  /* Dropdown Content Alignment */
+  .dropdown-content {
+    top: 4rem; 
+    left: 0; 
+    right: 0; 
+    margin: 0 auto;
+    max-width: 80%; 
+    padding: 0.5rem;
+  }
+
+  /* Toggle Contrast Button Alignment */
+  .navbar .toggle-contrast-btn {
+    margin: 0;
+    width: 60%; /* Use percentage for consistent size */
+    text-align: center; /* Center the text */
+    margin-bottom: 0.5rem; /* Adjust spacing */
+  }
+
+  .CButton {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    width: 100%; 
+    margin: 0 auto;
+  }
+}
